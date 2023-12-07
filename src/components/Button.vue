@@ -1,25 +1,27 @@
 <!-- Button.vue -->
 <template>
   <div>
-    <button :style="{ color: textColor, backgroundColor: bgColor }" @click="toggleButton">
+    <button :style="{ color: textColor, backgroundColor: bgColor }" @click="handleButtonClick">
       {{ buttonText }}
     </button>
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, computed, defineProps } from "vue";
 
-const props = defineProps(["text", "color"]);
+const props = defineProps(["text", "color", "isCancel"]);
 
 const buttonClicked = ref(false);
 
-const toggleButton = () => {
-  buttonClicked.value = !buttonClicked.value;
+const handleButtonClick = () => {
+  if (!props.isCancel) {
+    buttonClicked.value = !buttonClicked.value;
+  }
 };
 
 const buttonText = computed(() => {
-  return buttonClicked.value ? "Button Clicked!" : props.text || "Click Me";
+  return buttonClicked.value ? "Button Clicked!" : props.text || (props.isCancel ? "Cancel" : "Confirm");
 });
 
 const textColor = computed(() => props.color || "black");

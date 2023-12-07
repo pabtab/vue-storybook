@@ -16,8 +16,9 @@ export const Default = {
     template: '<Button v-bind="args" />',
   }),
   args: {
-    text: "Click Me",
+    text: "Confirm",
     color: "black",
+    isCancel: false,
   },
 };
 
@@ -32,5 +33,21 @@ export const ButtonClicked = {
   args: {
     text: "Button Clicked!",
     color: "red",
+    isCancel: false,
+  },
+};
+
+export const CancelButton = {
+  render: (args) => ({
+    components: { Button },
+    setup() {
+      return { args };
+    },
+    template: '<Button v-bind="args" />',
+  }),
+  args: {
+    text: "Cancel",
+    color: "gray",
+    isCancel: true,
   },
 };
