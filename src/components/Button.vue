@@ -21,11 +21,13 @@ const handleButtonClick = () => {
 };
 
 const buttonText = computed(() => {
-  return buttonClicked.value ? "Button Clicked!" : props.text || (props.isCancel ? "Cancel" : "Confirm");
+  return buttonClicked.value
+    ? "Button Clicked Tmrw !!!!!"
+    : props.text || (props.isCancel ? "Cancel" : "Confirm");
 });
 
 const textColor = computed(() => props.color || "black");
-const bgColor = computed(() => (buttonClicked.value ? "lightgreen" : "lightblue"));
+const bgColor = computed(() => (buttonClicked.value ? "blue" : "lightblue"));
 </script>
 
 <style scoped>

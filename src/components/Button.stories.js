@@ -31,7 +31,7 @@ export const ButtonClicked = {
     template: '<Button v-bind="args" />',
   }),
   args: {
-    text: "Button Clicked!",
+    text: "Button Clicked Tmrw !!!!!",
     color: "red",
     isCancel: false,
   },
